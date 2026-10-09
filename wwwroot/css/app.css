@@ -330,3 +330,16 @@ h1 {
 code {
     color: var(--violet);
 }
+
+.checks {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    display: grid;
+    gap: .35rem;
+    color: var(--muted);
+}
+
+    .checks li.ok {
+        color: var(--aqua);
+    }
