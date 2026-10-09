@@ -343,3 +343,106 @@ code {
     .checks li.ok {
         color: var(--aqua);
     }
+
+
+.meter {
+    height: 8px;
+    margin-top: 1.25rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: var(--level, var(--border));
+    transition: width .25s, background .25s;
+}
+
+.strength {
+    color: var(--level, var(--muted));
+    font-weight: 700;
+}
+
+.veryweak {
+    --level: var(--pink);
+}
+
+.weak {
+    --level: var(--coral);
+}
+
+.fair {
+    --level: var(--amber);
+}
+
+.strong {
+    --level: var(--aqua);
+}
+
+.verystrong {
+    --level: var(--violet);
+}
+
+.alert {
+    margin: 1rem 0 0;
+    padding: .75rem 1rem;
+
+    color: var(--pink);
+    background: rgba(255, 92, 138, .08);
+    border: 1px solid var(--pink);
+    border-radius: 8px;
+}
+
+.term + .term {
+    margin-top: 2rem;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 1rem 0 1.25rem;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--muted);
+}
+
+    .option input[type=range] {
+        flex: 1;
+        accent-color: var(--coral);
+    }
+
+    .option input[type=checkbox] {
+        accent-color: var(--coral);
+    }
+
+.btn {
+    padding: .55rem 1.1rem;
+    background: var(--coral);
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        filter: brightness(1.1);
+    }
+
+.generated {
+    margin-top: 1rem;
+}
+
+    .generated code {
+        flex: 1;
+        color: var(--aqua);
+        word-break: break-all;
+    }
