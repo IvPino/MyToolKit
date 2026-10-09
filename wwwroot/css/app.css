@@ -36,116 +36,7 @@ body {
     color: var(--bg);
 }
 
-/* ===== Menú ===== */
-.nav-menu {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: .5rem;
-    padding: .9rem 2rem;
-    background: rgba(14, 12, 24, .8);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
-}
-
-.nav-brand {
-    margin-right: auto;
-    font-weight: 700;
-}
-
-    .nav-brand .user {
-        color: var(--coral);
-    }
-
-    .nav-brand .host {
-        color: var(--violet);
-    }
-
-    .nav-brand .path {
-        color: var(--aqua);
-    }
-
-.nav-menu a {
-    color: var(--muted);
-    text-decoration: none;
-    padding: .35rem .8rem;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    transition: color .15s, border-color .15s, background .15s;
-}
-
-    .nav-menu a::before {
-        content: "./";
-        opacity: .5;
-    }
-
-    .nav-menu a:hover {
-        color: var(--text);
-        border-color: var(--border);
-    }
-
-    .nav-menu a.active {
-        color: var(--bg);
-        background: var(--coral);
-        font-weight: 700;
-    }
-
-/* ===== Contenido ===== */
-.content {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 2.5rem 1.25rem;
-}
-
-/* ===== Ventana de terminal ===== */
-.term {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 20px 50px -20px rgba(178, 141, 255, .35);
-}
-
-.term-bar {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    padding: .7rem 1rem;
-    background: var(--surface-2);
-    border-bottom: 1px solid var(--border);
-}
-
-.term-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-}
-
-    .term-dot.pink {
-        background: var(--pink);
-    }
-
-    .term-dot.amber {
-        background: var(--amber);
-    }
-
-    .term-dot.aqua {
-        background: var(--aqua);
-    }
-
-.term-title {
-    margin-left: .75rem;
-    color: var(--muted);
-    font-size: .85rem;
-}
-
-.term-body {
-    padding: 1.5rem;
-}
-
+/* ===== Tipografía ===== */
 h1 {
     font-size: 1.4rem;
     margin: 0 0 1.25rem;
@@ -156,64 +47,11 @@ h1 {
         color: var(--violet);
     }
 
-/* ===== Input estilo prompt ===== */
-.prompt {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-    padding: .75rem 1rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    transition: border-color .15s, box-shadow .15s;
+code {
+    color: var(--violet);
 }
 
-    .prompt:focus-within {
-        border-color: var(--violet);
-        box-shadow: 0 0 0 3px rgba(178, 141, 255, .2);
-    }
-
-.prompt-symbol {
-    color: var(--coral);
-    font-weight: 700;
-}
-
-.prompt input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    outline: none;
-    color: var(--text);
-    font: inherit;
-    caret-color: var(--coral);
-}
-
-    .prompt input::placeholder {
-        color: var(--muted);
-        opacity: .6;
-    }
-
-.masked {
-    -webkit-text-security: disc;
-}
-
-.toggle {
-    background: transparent;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: .25rem .6rem;
-    color: var(--muted);
-    font: inherit;
-    font-size: .8rem;
-    cursor: pointer;
-}
-
-    .toggle:hover {
-        color: var(--coral);
-        border-color: var(--coral);
-    }
-
-/* ===== Salida ===== */
+/* ===== Clases reutilizables ===== */
 .output {
     margin: 1rem 0 0;
     color: var(--muted);
@@ -224,32 +62,31 @@ h1 {
         font-weight: 700;
     }
 
-.cursor {
-    display: inline-block;
-    width: .6em;
-    height: 1.1em;
-    margin-left: .2em;
+.btn {
+    padding: .55rem 1.1rem;
     background: var(--coral);
-    vertical-align: text-bottom;
-    animation: blink 1s steps(1) infinite;
+    color: var(--bg);
+    border: none;
+    border-radius: 6px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0;
+    .btn:hover {
+        filter: brightness(1.1);
     }
+
+.alert {
+    margin: 1rem 0 0;
+    padding: .75rem 1rem;
+    color: var(--pink);
+    background: rgba(255, 92, 138, .08);
+    border: 1px solid var(--pink);
+    border-radius: 8px;
 }
 
-@media (max-width: 600px) {
-    .nav-menu {
-        padding: .8rem 1rem;
-    }
-
-    .nav-brand {
-        width: 100%;
-    }
-}
-
+/* ===== Reglas de Blazor (no borrar) ===== */
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid var(--aqua);
 }
@@ -325,124 +162,4 @@ h1 {
 
     .loading-progress-text:after {
         content: var(--blazor-load-percentage-text, "Loading");
-    }
-
-code {
-    color: var(--violet);
-}
-
-.checks {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0;
-    display: grid;
-    gap: .35rem;
-    color: var(--muted);
-}
-
-    .checks li.ok {
-        color: var(--aqua);
-    }
-
-
-.meter {
-    height: 8px;
-    margin-top: 1.25rem;
-    background: var(--bg);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    overflow: hidden;
-}
-
-.meter-fill {
-    height: 100%;
-    background: var(--level, var(--border));
-    transition: width .25s, background .25s;
-}
-
-.strength {
-    color: var(--level, var(--muted));
-    font-weight: 700;
-}
-
-.veryweak {
-    --level: var(--pink);
-}
-
-.weak {
-    --level: var(--coral);
-}
-
-.fair {
-    --level: var(--amber);
-}
-
-.strong {
-    --level: var(--aqua);
-}
-
-.verystrong {
-    --level: var(--violet);
-}
-
-.alert {
-    margin: 1rem 0 0;
-    padding: .75rem 1rem;
-
-    color: var(--pink);
-    background: rgba(255, 92, 138, .08);
-    border: 1px solid var(--pink);
-    border-radius: 8px;
-}
-
-.term + .term {
-    margin-top: 2rem;
-}
-
-.options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    margin: 1rem 0 1.25rem;
-}
-
-.option {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    color: var(--muted);
-}
-
-    .option input[type=range] {
-        flex: 1;
-        accent-color: var(--coral);
-    }
-
-    .option input[type=checkbox] {
-        accent-color: var(--coral);
-    }
-
-.btn {
-    padding: .55rem 1.1rem;
-    background: var(--coral);
-    color: var(--bg);
-    border: none;
-    border-radius: 6px;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-    .btn:hover {
-        filter: brightness(1.1);
-    }
-
-.generated {
-    margin-top: 1rem;
-}
-
-    .generated code {
-        flex: 1;
-        color: var(--aqua);
-        word-break: break-all;
     }

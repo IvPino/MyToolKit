@@ -1,7 +1,9 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>MyToolKit</PageTitle>
 
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
+<TerminalWindow Title="~/mytoolkit">
+    <h1>Welcome</h1>
+    <p class="output">A personal security toolkit built with Blazor.</p>
+    <p class="output">❯ run <span class="value">./password</span> to analyze a password<span class="cursor"></span></p>
+</TerminalWindow>
