@@ -1,13 +1,265 @@
+/* ===== Paleta: variables CSS ===== */
+:root {
+    --bg: #0e0c18;
+    --surface: #17142a;
+    --surface-2: #201c38;
+    --border: #2e2950;
+    --text: #e8e4ff;
+    --muted: #8b84b3;
+    --coral: #ff7a59;
+    --violet: #b28dff;
+    --aqua: #4fe3d1;
+    --amber: #ffc857;
+    --pink: #ff5c8a;
+    --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 15px;
+}
+
+body {
+    background: radial-gradient(circle at 15% 0%, rgba(178, 141, 255, .12), transparent 40%), radial-gradient(circle at 85% 100%, rgba(255, 122, 89, .10), transparent 40%), var(--bg);
+    background-attachment: fixed;
+}
+
+::selection {
+    background: var(--violet);
+    color: var(--bg);
+}
+
+/* ===== Menú ===== */
+.nav-menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    padding: .9rem 2rem;
+    background: rgba(14, 12, 24, .8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-brand {
+    margin-right: auto;
+    font-weight: 700;
+}
+
+    .nav-brand .user {
+        color: var(--coral);
+    }
+
+    .nav-brand .host {
+        color: var(--violet);
+    }
+
+    .nav-brand .path {
+        color: var(--aqua);
+    }
+
+.nav-menu a {
+    color: var(--muted);
+    text-decoration: none;
+    padding: .35rem .8rem;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: color .15s, border-color .15s, background .15s;
+}
+
+    .nav-menu a::before {
+        content: "./";
+        opacity: .5;
+    }
+
+    .nav-menu a:hover {
+        color: var(--text);
+        border-color: var(--border);
+    }
+
+    .nav-menu a.active {
+        color: var(--bg);
+        background: var(--coral);
+        font-weight: 700;
+    }
+
+/* ===== Contenido ===== */
+.content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem;
+}
+
+/* ===== Ventana de terminal ===== */
+.term {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px -20px rgba(178, 141, 255, .35);
+}
+
+.term-bar {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .7rem 1rem;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+}
+
+.term-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+    .term-dot.pink {
+        background: var(--pink);
+    }
+
+    .term-dot.amber {
+        background: var(--amber);
+    }
+
+    .term-dot.aqua {
+        background: var(--aqua);
+    }
+
+.term-title {
+    margin-left: .75rem;
+    color: var(--muted);
+    font-size: .85rem;
+}
+
+.term-body {
+    padding: 1.5rem;
+}
+
+h1 {
+    font-size: 1.4rem;
+    margin: 0 0 1.25rem;
+}
+
+    h1::before {
+        content: "# ";
+        color: var(--violet);
+    }
+
+/* ===== Input estilo prompt ===== */
+.prompt {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .75rem 1rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+    .prompt:focus-within {
+        border-color: var(--violet);
+        box-shadow: 0 0 0 3px rgba(178, 141, 255, .2);
+    }
+
+.prompt-symbol {
+    color: var(--coral);
+    font-weight: 700;
+}
+
+.prompt input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font: inherit;
+    caret-color: var(--coral);
+}
+
+    .prompt input::placeholder {
+        color: var(--muted);
+        opacity: .6;
+    }
+
+.masked {
+    -webkit-text-security: disc;
+}
+
+.toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: .25rem .6rem;
+    color: var(--muted);
+    font: inherit;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+    .toggle:hover {
+        color: var(--coral);
+        border-color: var(--coral);
+    }
+
+/* ===== Salida ===== */
+.output {
+    margin: 1rem 0 0;
+    color: var(--muted);
+}
+
+    .output .value {
+        color: var(--aqua);
+        font-weight: 700;
+    }
+
+.cursor {
+    display: inline-block;
+    width: .6em;
+    height: 1.1em;
+    margin-left: .2em;
+    background: var(--coral);
+    vertical-align: text-bottom;
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-menu {
+        padding: .8rem 1rem;
+    }
+
+    .nav-brand {
+        width: 100%;
+    }
+}
+
 .valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+    outline: 1px solid var(--aqua);
 }
 
 .invalid {
-    outline: 1px solid red;
+    outline: 1px solid var(--pink);
 }
 
 .validation-message {
-    color: red;
+    color: var(--pink);
 }
 
 #blazor-error-ui {
@@ -52,14 +304,14 @@
 
     .loading-progress circle {
         fill: none;
-        stroke: #e0e0e0;
+        stroke: var(--border);
         stroke-width: 0.6rem;
         transform-origin: 50% 50%;
         transform: rotate(-90deg);
     }
 
         .loading-progress circle:last-child {
-            stroke: #1b6ec2;
+            stroke: var(--coral);
             stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
             transition: stroke-dasharray 0.05s ease-in-out;
         }
@@ -76,14 +328,5 @@
     }
 
 code {
-    color: #c02d76;
-}
-
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-    color: var(--bs-secondary-color);
-    text-align: end;
-}
-
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-    text-align: start;
+    color: var(--violet);
 }

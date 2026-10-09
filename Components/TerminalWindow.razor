@@ -1,0 +1,16 @@
+﻿<section class="term">
+    <div class="term-bar">
+        <span class="term-dot pink"></span>
+        <span class="term-dot amber"></span>
+        <span class="term-dot aqua"></span>
+        <span class="term-title">@Title</span>
+    </div>
+    <div class="term-body">
+        @ChildContent
+    </div>
+</section>
+
+@code {
+    [Parameter] public string Title { get; set; } = "terminal";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+}
